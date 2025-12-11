@@ -20,9 +20,7 @@ public class PosterManagerTest {
     @Test
     public void checkingInitializationConstruct() {
 
-        PosterManager mockManager = Mockito.mock(
-                PosterManager.class,
-                withSettings().useConstructor().defaultAnswer(CALLS_REAL_METHODS));
+        PosterManager mockManager = new PosterManager();
         int expected = 5;
         Assertions.assertEquals(expected, mockManager.getPrintLastposter());
     }
@@ -31,8 +29,7 @@ public class PosterManagerTest {
     public void CheckingInitializationConstructorParameters() {
         PosterManager poster = new PosterManager(3);
         int expected = 3;
-        PosterManager spy = Mockito.spy(poster);
-        Assertions.assertEquals(expected, spy.getPrintLastposter());
+        Assertions.assertEquals(expected, poster.getPrintLastposter());
     }
 
 
