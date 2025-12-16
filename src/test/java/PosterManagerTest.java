@@ -26,10 +26,32 @@ public class PosterManagerTest {
     }
 
     @Test
-    public void CheckingInitializationConstructorParameters() {
+    public void checkingInitializationConstructorParameters() {
         PosterManager poster = new PosterManager(3);
         int expected = 3;
         Assertions.assertEquals(expected, poster.getPrintLastposter());
+    }
+
+    @Test
+    public void checkingFindAll() {
+        String[] expected = {"Шрек", "Кот в сапогах", "Гарри Поттер"};
+        PosterManager poster = new PosterManager(6);
+        poster.addPoster(poster1);
+        poster.addPoster(poster2);
+        poster.addPoster(poster3);
+
+        Assertions.assertArrayEquals(expected, poster.findAll());
+    }
+
+    @Test
+    public void checkingFindLast() {
+        String[] expected = {"Гарри Поттер", "Кот в сапогах"};
+        PosterManager poster = new PosterManager(2);
+        poster.addPoster(poster1);
+        poster.addPoster(poster2);
+        poster.addPoster(poster3);
+
+        Assertions.assertArrayEquals(expected, poster.findLast());
     }
 
 

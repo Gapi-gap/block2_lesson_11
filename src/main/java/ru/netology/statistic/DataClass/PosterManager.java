@@ -4,7 +4,6 @@ public class PosterManager {
     private String[] posters = new String[0];
     private int printLastposter;
 
-    private int radioStation;
 
     public PosterManager() {
         this.printLastposter = 5;
@@ -23,21 +22,22 @@ public class PosterManager {
         posters = tmp;
     }
 
-    public void findAll() {
-        for (String poster : posters) {
-            System.out.println(poster + " ");
-        }
+    public String[] findAll() {
+        return posters;
     }
 
-    public void findLast() {
-        int qtyPosters = 0;
+    public String[] findLast() {
+        int index = 0;
+        String[] lastPosters = new String[printLastposter];
         for (int i = posters.length - 1; i > -1; i--) {
-            if (qtyPosters == printLastposter) {
+            if (index == printLastposter) {
                 break;
             }
-            System.out.println(posters[i] + " ");
-            qtyPosters++;
+            lastPosters[index] = posters[i];
+            index++;
         }
+        int sdf = 0;
+        return lastPosters;
     }
 
 
